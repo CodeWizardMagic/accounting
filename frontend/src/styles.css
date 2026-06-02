@@ -1,0 +1,106 @@
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  background: #f5f7fb;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-sider {
+  background: #152238;
+}
+
+.brand {
+  height: 64px;
+  padding: 20px 24px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+}
+
+.app-header h3 {
+  margin: 0;
+}
+
+.app-content {
+  padding: 20px;
+}
+
+.page-panel {
+  min-height: calc(100vh - 104px);
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.toolbar .ant-input-affix-wrapper {
+  width: 320px;
+  max-width: 100%;
+}
+
+.wide-control {
+  width: 100%;
+}
+
+.excel-table .ant-table {
+  background: #ffffff;
+}
+
+.excel-table .ant-table-thead > tr > th {
+  background: #eef3f8;
+  color: #263447;
+  font-weight: 700;
+  text-align: center;
+}
+
+.excel-table .ant-table-cell {
+  padding: 6px;
+}
+
+.cell-input {
+  width: 58px;
+}
+
+.cell-input.changed .ant-input-number-input {
+  background: #fff7d6;
+}
+
+.employee-name {
+  font-weight: 600;
+}
+
+.muted {
+  color: #687385;
+}
+
+@media (max-width: 720px) {
+  .app-content {
+    padding: 12px;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+
+  .toolbar > * {
+    width: 100%;
+  }
+}
