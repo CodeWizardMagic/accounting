@@ -3,6 +3,7 @@ services:
     image: postgres:17
     container_name: timesheet_postgres
     restart: unless-stopped
+    cpus: 0.5
     env_file:
       - .env
     environment:
@@ -18,6 +19,10 @@ services:
       retries: 10
     networks:
       - timesheet_network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
 
   backend:
     build:
@@ -25,6 +30,7 @@ services:
       dockerfile: backend/Dockerfile
     container_name: timesheet_backend
     restart: unless-stopped
+    cpus: 0.5
     env_file:
       - .env
     depends_on:
@@ -37,6 +43,10 @@ services:
       BACKEND_CORS_ORIGIN_REGEX: http://.*:5180
     networks:
       - timesheet_network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
 
   frontend:
     build:
@@ -44,12 +54,17 @@ services:
       dockerfile: Dockerfile
     container_name: timesheet_frontend
     restart: unless-stopped
+    cpus: 0.5
     depends_on:
       - backend
     ports:
       - "5180:5180"
     networks:
       - timesheet_network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
 
   telegram_bot:
     build:
@@ -57,6 +72,7 @@ services:
       dockerfile: bot/Dockerfile
     container_name: timesheet_telegram_bot
     restart: unless-stopped
+    cpus: 0.5
     env_file:
       - .env
     depends_on:
@@ -66,6 +82,10 @@ services:
         condition: service_started
     networks:
       - timesheet_network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
 
 volumes:
   postgres_data:
