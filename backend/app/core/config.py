@@ -6,7 +6,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_url: str = Field(default="postgresql+psycopg://postgres:postgres@postgres:5432/timesheet_db", alias="DATABASE_URL")
-    backend_cors_origins: str = Field(default="http://localhost:5173", alias="BACKEND_CORS_ORIGINS")
+    backend_cors_origins: str = Field(default="http://localhost:5180", alias="BACKEND_CORS_ORIGINS")
+    backend_cors_origin_regex: str | None = Field(default=r"https?://.*:5180", alias="BACKEND_CORS_ORIGIN_REGEX")
     groq_api_key: str = Field(default="", alias="GROQ_API_KEY")
     groq_model: str = Field(default="llama-3.3-70b-versatile", alias="GROQ_MODEL")
     ai_provider: str = Field(default="groq", alias="AI_PROVIDER")

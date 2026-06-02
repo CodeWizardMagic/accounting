@@ -32,7 +32,8 @@ POSTGRES_DB=timesheet_db
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 DATABASE_URL=postgresql+psycopg://postgres:postgres@postgres:5432/timesheet_db
-BACKEND_CORS_ORIGINS=http://localhost:5173
+BACKEND_CORS_ORIGINS=http://localhost:5180,http://127.0.0.1:5180
+BACKEND_CORS_ORIGIN_REGEX=http://.*:5180
 
 TELEGRAM_BOT_TOKEN=
 AI_PROVIDER=groq
@@ -50,9 +51,9 @@ Backend при старте дождется PostgreSQL и применит Alem
 
 ## Адреса
 
-- Веб-интерфейс: http://localhost:5173
-- Backend API: http://localhost:8000
-- Swagger: http://localhost:8000/docs
+- Веб-интерфейс: http://localhost:5180
+- Backend API: http://localhost:8010
+- Swagger: http://localhost:8010/docs
 
 ## Docker-сервисы
 

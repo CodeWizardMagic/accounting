@@ -31,7 +31,10 @@ services:
       postgres:
         condition: service_healthy
     ports:
-      - "8000:8000"
+      - "8010:8000"
+    environment:
+      BACKEND_CORS_ORIGINS: http://localhost:5180,http://127.0.0.1:5180
+      BACKEND_CORS_ORIGIN_REGEX: http://.*:5180
     networks:
       - timesheet_network
 
@@ -44,9 +47,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "5173:5173"
-    environment:
-      VITE_API_URL: http://localhost:8000
+      - "5180:5180"
     networks:
       - timesheet_network
 
